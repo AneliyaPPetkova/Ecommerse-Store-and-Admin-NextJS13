@@ -18,7 +18,7 @@ interface ModalProps {
 
 type ModalType = React.FC<ModalProps>;
 
-export const Modal: ModalType = ({ title, description, isOpen, onClose }) => {
+export const Modal: ModalType = ({ title, description, isOpen, onClose, children }) => {
   const onChange = (open: boolean) => {
     if (!open) {
       if (onClose) onClose();
@@ -31,6 +31,7 @@ export const Modal: ModalType = ({ title, description, isOpen, onClose }) => {
         <DialogHeader>
           <DialogTitle>{title}</DialogTitle>
           <DialogDescription>{description}</DialogDescription>
+          {children}
         </DialogHeader>
       </DialogContent>
     </Dialog>
